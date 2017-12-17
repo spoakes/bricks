@@ -34,7 +34,7 @@ public class Application
 			post("/create", (request, response) -> {
 				CreateRequest createRequest = gson.fromJson(request.body(), CreateRequest.class);
 				CreateResponse createResponse = service.create(createRequest);
-				if (createResponse.errors.isEmpty())
+				if (!createResponse.errors.isEmpty())
 				{
 					response.status(400);
 				}
